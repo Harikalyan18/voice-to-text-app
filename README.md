@@ -32,6 +32,27 @@ This is a cross-platform desktop application built with Tauri and React that con
 - Character count and status indicators
 - Responsive design for different screen sizes
 
+
+## Technical Assessment Focus Areas
+
+### Architecture Decisions
+1. **Frontend-Only Approach**: Chose to keep API calls client-side to reduce complexity and latency
+2. **Custom React Hook**: Abstracted audio recording logic for reusability and testability
+3. **Service Layer**: Separated Deepgram integration for easy API switching
+4. **Environment Configuration**: Secure API key management without user input
+
+### Problem-Solving Examples
+1. **WebSocket Stability**: Implemented reconnection logic and error handling
+2. **Audio Quality**: Optimized sample rate and chunk size for transcription accuracy
+3. **Cross-Platform**: Configured Tauri for consistent behavior across OS
+4. **Error UX**: Designed clear, actionable error messages
+
+### Code Quality Highlights
+- Consistent formatting and naming conventions
+- Comprehensive error handling throughout
+- Comments explaining complex logic
+- Separation of concerns maintained
+
 ## Technical Stack
 
 ### **Frontend**
