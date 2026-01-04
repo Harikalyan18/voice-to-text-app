@@ -1,6 +1,6 @@
 # Voice-to-Text Desktop App with Tauri + Deepgram
 
-A functional clone of Wispr Flow that provides voice-to-text transcription with desktop integration.
+A cross-platform desktop application for real-time speech-to-text transcription using Tauri and Deepgram API.
 
 ## Project Overview
 
@@ -9,14 +9,21 @@ This is a cross-platform desktop application built with Tauri and React that con
 ## Features
 
 ### Core Features Implemented
-1. **Push-to-Talk Voice Input** - Start/stop recording with visual feedback
-2. **Dual Transcription Modes**:
-   - Real-time streaming (WebSocket)
-   - Record-and-transcribe (REST API)
-3. **Microphone Access** - High-quality audio capture with noise suppression
-4. **Text Display & Copy** - Clear transcription display with character count
-5. **Desktop Integration** - Global shortcuts, system tray, and clipboard integration
-6. **Error Handling** - Graceful handling of API errors, network issues, and permissions
+- **Push-to-Talk Voice Input**: Single button for start/stop recording
+- **Real-Time Transcription**: Streaming audio to Deepgram with immediate text feedback
+- **Microphone Access**: High-quality audio capture with permission handling
+- **Text Display & Management**: Clean interface for viewing and managing transcriptions
+- **Recording Controls**: Visual feedback with recording indicators
+- **Error Handling**: Graceful handling of network issues, API errors, and permission denials
+
+
+### Additional Features
+- **Dual Mode**: Real-time streaming and batch transcription modes
+- **History Management**: Save, copy, and export transcription history
+- **Clipboard Integration**: One-click copy of transcribed text
+- **Export Functionality**: Save transcriptions as text files
+- **Responsive Design**: Works on various screen sizes
+
 
 ### User Interface
 - Clean, modern UI with visual feedback
@@ -27,20 +34,29 @@ This is a cross-platform desktop application built with Tauri and React that con
 
 ## Technical Stack
 
-| Technology | Purpose |
-|
-| **Tauri 1.5** | Cross-platform desktop framework (Rust backend) |
-| **React 18** | Frontend UI with hooks for state management |
-| **Deepgram API** | Real-time speech-to-text transcription |
-| **WebRTC** | Microphone access and audio streaming |
-| **CSS3** | Modern styling with animations and responsive design |
+### **Frontend**
+- **React 18** with functional components and hooks
+- **CSS3** with modern flexbox/grid layouts
+- **Vite** for fast development and building
+
+### **Desktop Framework**
+- **Tauri 1.x**: Cross-platform desktop app framework (Rust-based)
+- **Native System Integration**: File system access, clipboard, window management
+
+### **Speech Recognition**  
+- **Deepgram API**: State-of-the-art speech-to-text with low latency
+- **WebSocket Streaming**: Real-time transcription as you speak
+- **Batch Processing**: Alternative mode for higher accuracy
 
 ## Installation & Setup
 
 ### Prerequisites
 - Node.js 18+ and npm
-- Rust and Cargo (for Tauri)
+- Rust 1.70+ (for Tauri)
 - Deepgram API key (free at [deepgram.com](https://deepgram.com))
+- Windows: Visual Studio Build Tools
+- macOS: Xcode Command Line Tools
+- Linux: gcc and other dev tools
 
 ### Step-by-Step Setup
 
@@ -48,3 +64,16 @@ This is a cross-platform desktop application built with Tauri and React that con
 ```bash
 git clone <repository-url>
 cd voice-to-text-app
+
+# Install dependencies
+npm install
+
+# Configure environment
+cp .env.example .env
+# Edit .env and add your Deepgram API key
+
+# Start development
+npm run tauri dev
+
+# Build for production
+npm run tauri build
